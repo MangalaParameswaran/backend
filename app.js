@@ -1,4 +1,5 @@
 const express = require('express');
+const cors=require('cors')
 const app = express();
 const errorMiddleware = require('./middlewares/error');
 const cookieParser = require('cookie-parser')
@@ -6,7 +7,7 @@ const path = require('path')
 const dotenv = require('dotenv');
 dotenv.config({path:path.join(__dirname,"config/config.env")});
 
-
+app.use(cors())
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(path.join(__dirname,'uploads') ) )
