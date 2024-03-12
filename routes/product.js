@@ -11,6 +11,7 @@ const {
   getAdminProducts,
 } = require("../controllers/productController");
 const router = express.Router();
+router.use(express.json())
 const {
   isAuthenticatedUser,
   authorizeRoles,
